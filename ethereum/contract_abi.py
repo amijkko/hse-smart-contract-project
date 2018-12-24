@@ -9,22 +9,16 @@ abi_raw = """
 				"type": "string"
 			},
 			{
-				"components": [
-					{
-						"name": "title",
-						"type": "string"
-					},
-					{
-						"name": "url",
-						"type": "string"
-					},
-					{
-						"name": "price",
-						"type": "uint256"
-					}
-				],
-				"name": "ad",
-				"type": "tuple"
+				"name": "title_",
+				"type": "bytes32"
+			},
+			{
+				"name": "url_",
+				"type": "string"
+			},
+			{
+				"name": "price_",
+				"type": "uint256"
 			}
 		],
 		"name": "set_ad",
@@ -41,25 +35,49 @@ abi_raw = """
 				"type": "string"
 			}
 		],
-		"name": "get_ad",
+		"name": "get_ad_price",
 		"outputs": [
 			{
-				"components": [
-					{
-						"name": "title",
-						"type": "string"
-					},
-					{
-						"name": "url",
-						"type": "string"
-					},
-					{
-						"name": "price",
-						"type": "uint256"
-					}
-				],
-				"name": "ad",
-				"type": "tuple"
+				"name": "price_",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "key",
+				"type": "string"
+			}
+		],
+		"name": "get_ad_title",
+		"outputs": [
+			{
+				"name": "title_",
+				"type": "bytes32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "key",
+				"type": "string"
+			}
+		],
+		"name": "get_ad_url",
+		"outputs": [
+			{
+				"name": "url_",
+				"type": "string"
 			}
 		],
 		"payable": false,
