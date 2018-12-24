@@ -11,5 +11,6 @@ def search():
         result = mapping.get(search_str)
         if result is None:
             result = 'На ваш запрос нет результатов'
-        return render_template('result.html', title='Result', result=result)
+        src_url = "https://www.bing.com/search?q={}".format(search_str)
+        return render_template('result.html', title='Result', result=result, src_url=src_url)
     return render_template('search.html', title='Search')
