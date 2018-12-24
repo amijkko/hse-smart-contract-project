@@ -7,8 +7,11 @@
 {% block content %}
     <body>
         <h2>{{result}}</h1>
-        <section class="bing">  
-        <iframe src={{src_url}} height="300" width="80%"></iframe>
+        <section class="result"> 
+        <iframe src={{result_url}} height="400" width="80%"></iframe> 
+        </section>
+        <section class="bing"> 
+        <iframe src={{src_url}} height="400" width="80%"></iframe>
         </section>
     </body>
 {% endblock %}            
