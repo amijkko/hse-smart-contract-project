@@ -18,6 +18,9 @@ contract banner_prototype {
         key = 'new year';
         ads_titles[key] = 'Best New Year Gifts';
         ads_urls[key] = 'https://bit.ly/2EJMgW6';
+        key = 'mountains';
+        ads_titles[key] = 'Buy Skis online';
+        ads_urls[key] = 'https://bit.ly/2LxrI4H';
     }
 
     function set_ad(string memory key, string title_, string url_) public payable {
