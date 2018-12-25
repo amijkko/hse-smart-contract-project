@@ -1,11 +1,29 @@
 pragma solidity ^0.4.24;
 
-contract banner_prototype {
+contract Ownable {
+    address public owner;
 
+    function Ownable() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner {
+        if (msg.sender != owner) throw;
+        _;
+    }
+
+    function transferOwnership(address newOwner) onlyOwner {
+        if (newOwner != address(0)) {
+            owner = newOwner;
+        }
+    }
+}
+
+contract banner_prototype is Ownable{
     mapping(string => string) ads_titles;
     mapping(string => string) ads_urls;
     mapping(string => uint256) ads_prices;
-    uint256 min_price = 0;
+    uint256 public min_price = 0;
 
     constructor () public {
         // make some examples by default
@@ -25,6 +43,7 @@ contract banner_prototype {
 
     function set_ad(string memory key, string title_, string url_) public payable {
         require(msg.value >= min_price);
+        require(msg.value >= ads_prices[key]);
         ads_urls[key] = url_;
         ads_titles[key] = title_;
         ads_prices[key] = msg.value;
@@ -42,4 +61,15 @@ contract banner_prototype {
         price_ = ads_prices[key];
     }
 
+    function get_contract_balance() public onlyOwner returns (uint256) {
+        return this.balance;
+    }
+
+    function pay_money() public onlyOwner {
+        owner.transfer(this.balance);
+    }
+
+    function change_min_price(uint256 price_) public onlyOwner {
+        min_price = price_;
+    }
 }
