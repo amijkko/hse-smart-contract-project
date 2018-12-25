@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Результаты поиска{% endblock %}</h1>
+  <h1>{% block title %}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
     <body>
-        <h2>{{result}}</h1>
-        <section class="result"> 
-        <iframe src={{result_url}} height="400" width="80%"></iframe> 
-        </section>
+        <h2>Paid ads</h2>
+        <a href={{result_url}}>{{result}}</a> 
+        <h2>Search results</h2>
         <section class="bing"> 
         <iframe src={{src_url}} height="400" width="80%"></iframe>
         </section>
