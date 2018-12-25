@@ -14,7 +14,7 @@ def search():
         result_url = get_url(search_str)
         if result is None:
             result = 'На ваш запрос нет результатов'
-        src_url = "https://www.bing.com/search?q={}".format(search_str)
+        src_url = "https://www.bing.com/search?q={}".format('+'.join(search_str.split()))
         return render_template('result.html', title='Result', result=result,
                             result_url=result_url, src_url=src_url)
     return render_template('search.html', title='Search')
