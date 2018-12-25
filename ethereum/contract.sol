@@ -15,6 +15,9 @@ contract banner_prototype {
         key = 'cat food';
         ads_titles[key] = 'Kitekat - best cat food';
         ads_urls[key] = 'http://kitekat.ru/';
+        key = 'new year';
+        ads_titles[key] = 'Best New Year Gifts';
+        ads_urls[key] = 'https://bit.ly/2EJMgW6';
     }
 
     function set_ad(string memory key, string title_, string url_) public payable {
